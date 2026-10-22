@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+<title>Roadster Loop – Night Ramp Stunt Game</title>
+<meta name="description" content="Roadster Loop: launch an electric sports car off a giant night-time ramp, flip it in the air with cold-gas thrusters and stick the landing.">
+<meta name="theme-color" content="#04060f">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="stage">
+  <canvas id="c"></canvas>
+
+  <div id="hud" hidden>
+    <div class="top">
+      <div class="stat"><span>Speed</span><b id="hSpeed">0</b><i>mph</i></div>
+      <div class="stat"><span>Altitude</span><b id="hAlt">0</b><i>ft</i></div>
+      <div class="stat score"><span>Score</span><b id="hScore">0</b></div>
+      <button id="muteBtn" class="icon-btn" title="Mute (M)" aria-label="Toggle sound">&#128266;</button>
+    </div>
+
+    <div id="lights" class="lights" hidden>
+      <div class="lamp"></div><div class="lamp"></div><div class="lamp"></div><div class="lamp"></div>
+    </div>
+
+    <div id="msg" class="msg"></div>
+
+    <div class="bottom">
+      <div class="gas">
+        <span>Gas</span>
+        <div class="bar"><div id="hGas"></div></div>
+      </div>
+      <div id="airInfo" class="air" hidden>
+        <div class="tilt"><div id="tiltIcon">&#9654;</div></div>
+        <div class="readout"><span>Tilt</span><b id="hTilt">0&deg;</b></div>
+        <div class="readout"><span>Sink</span><b id="hSink">0</b><i>ft/s</i></div>
+        <div class="readout"><span>Flips</span><b id="hFlips">0</b></div>
+        <div class="readout"><span>Rings</span><b id="hRings">0</b></div>
+      </div>
+    </div>
+
+    <div class="touch">
+      <button id="tLeft" aria-label="Rotate left">&#8630;</button>
+      <button id="tRight" aria-label="Rotate right">&#8631;</button>
+      <button id="tThrust" aria-label="Thrusters">&#9650;<small>Thrust</small></button>
+    </div>
+  </div>
+
+  <div id="title" class="overlay">
+    <div class="card">
+      <h1>Roadster<br>Loop</h1>
+      <p class="tag">Night ramp stunt. Launch, climb the wall, flip, stick the landing.</p>
+      <button id="startBtn" class="primary">Start</button>
+      <p class="hint">Press <kbd>Space</kbd> or tap</p>
+      <ul class="how">
+        <li><b>Lights:</b> wait for green, then press <kbd>Space</kbd> / tap. Too early = locked out.</li>
+        <li><b>Air:</b> <kbd>&larr;</kbd><kbd>&rarr;</kbd> rotate, hold <kbd>Space</kbd> for thrusters. Fly through rings for gas.</li>
+        <li><b>Land:</b> upright (within 28&deg;) and under 39 ft/s sink speed.</li>
+      </ul>
+      <p class="best">Best score: <b id="titleBest">0</b></p>
+    </div>
+  </div>
+
+  <div id="results" class="overlay" hidden>
+    <div class="card wide">
+      <div class="head">
+        <div id="rGrade" class="grade">A</div>
+        <div class="headtxt">
+          <div id="rOutcome" class="outcome">Smooth landing</div>
+          <div id="rScore" class="bigscore">0</div>
+          <div id="rBadge" class="badge" hidden>New best!</div>
+          <div class="bestline">Best: <b id="rBest">0</b></div>
+        </div>
+      </div>
+      <dl class="grid">
+        <div><dt>Reaction</dt><dd id="rReact">-</dd></div>
+        <div><dt>Ramp speed</dt><dd id="rRamp">-</dd></div>
+        <div><dt>Peak G</dt><dd id="rG">-</dd></div>
+        <div><dt>Max altitude</dt><dd id="rAlt">-</dd></div>
+        <div><dt>Airtime</dt><dd id="rAir">-</dd></div>
+        <div><dt>Flips</dt><dd id="rFlips">-</dd></div>
+        <div><dt>Rings</dt><dd id="rRings">-</dd></div>
+        <div><dt>Touchdown</dt><dd id="rTouch">-</dd></div>
+      </dl>
+      <button id="againBtn" class="primary">Run it again</button>
+      <p class="hint"><kbd>Space</kbd> or <kbd>Enter</kbd></p>
+    </div>
+  </div>
+
+  <div id="fatal" class="overlay" hidden>
+    <div class="card"><h1>Couldn't load</h1><p>three.js failed to load. Check your connection and reload the page.</p></div>
+  </div>
+</div>
+
+<footer>
+  <span>Unofficial fan game, not affiliated with Tesla.</span>
+  <a href="privacy.html">Privacy</a>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="game.js"></script>
+</body>
+</html>

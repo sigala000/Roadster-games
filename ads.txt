@@ -1,0 +1,3 @@
+# ads.txt for Roadster Loop
+# Replace the placeholder below with your own seller line once you have an ad account, e.g.:
+# google.com, pub-0000000000000000, DIRECT, f08c47fec0942fa0
