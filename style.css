@@ -256,3 +256,8 @@ body.page main { max-width: 720px; margin: 0 auto; padding: 32px 20px 80px; line
 body.page h1 { font-size: 34px; margin-bottom: 4px; }
 body.page h2 { margin-top: 28px; color: var(--cyan); font-size: 18px; }
 body.page a { color: var(--cyan); }
+
+body.page .sitenav { display: flex; flex-wrap: wrap; gap: 6px 16px; margin-bottom: 24px; font-size: 14px; }
+body.page ul, body.page ol { padding-left: 22px; }
+body.page li { margin: 6px 0; }
+body.page .fine { margin-top: 40px; color: var(--dim); font-size: 13px; }
